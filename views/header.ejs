@@ -1,0 +1,23 @@
+
+<div id="header">
+	<ul id="nav">
+		<li><a href="/">首页</a></li>
+		<li><a href="">博文</a></li>
+		<li><a href="/album">相册</a></li>
+		<li><a href="/say">发表</a></li>
+	</ul>
+	
+	<% if(userInfo){%>
+	<ul id="ral">
+
+		<li><a href="/users/changeHead"><img src="<%= userInfo.headPic %>"><%= userInfo.userName %></a></li>
+		<li><a href="/users/loginout">退出登录</a></li>
+	</ul>
+	<%}else{%>
+	<ul id="ral">
+		<li><a href="/users/login">登录</a></li>
+		<li><a href="/users/login">注册</a></li>
+	</ul>
+	<% } %>
+
+</div>

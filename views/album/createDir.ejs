@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+</script>
+  </head>
+  <body>
+    <form method="post"  action="/createDir">
+      <input type="text" placeholder="文件夹名称" name="dirName">
+      <button type="submit">提交</button>
+    </form>
+  </body>
+ <!--  <script>
+    $(function(){
+      $('button').click(function(){
+        let value = $('input').val();
+        $.post('/createDir',{dirName:value},(res)=>{
+          if(res == 1){
+            window.location.href = '/'
+          }
+          else if(res == -1){
+            alert('文件已重名')
+          }
+          else{
+            alert('文件创建失败')
+          }
+        })
+      })
+    })
+
+    // res.json=>发送一个json的响应给页面=>然后自定义函数处理json
+  </script> -->
+</html>

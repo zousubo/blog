@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ./head.ejs %>
+
+    <style>
+    	#lar{width:40%;float:right;}
+	#lar>#tab{width:100%;height:30px;background:orange;float:right;}
+	#lar>#tab>li{width:50%;float:left;text-align: center;line-height:30px;}
+	
+	#lar>.change{position:relative;}
+	#lar>.change>div{position: absolute;display: none;top:30px;}
+    	#lar>.change>.login{width:100%;float:right;background:#eee;padding:30px;padding-bottom: 60px}
+    	#lar>.change>.login>form{margin-top:20px;}
+    	#lar>.change>.login>form>div{margin-top:30px;}
+    	#lar>.change>.login h1{text-align:center;font-size:60px;}
+    	#lar>.change>.login p{color:red;text-align:center;font-size:25px;margin:10px 0px}
+    	#lar>.change>.login input{width:60%;display:block;margin:0 auto;height:30px;}
+    	#lar>.change>.register{width:100%;float:right;background:#eee;padding:30px;padding-bottom: 60px}
+    	#lar>.change>.register>form{margin-top:20px;}
+    	#lar>.change>.register>form>div{margin-top:30px;}
+    	#lar>.change>.register h1{text-align:center;font-size:60px;}
+    	#lar>.change>.register p{color:red;text-align:center;font-size:25px;margin:10px 0px}
+    	#lar>.change>.register input{width:60%;display:block;margin:0 auto;height:30px;}
+	
+	#lar>.change>.active{display: block}
+
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+  <% include header.ejs %>
+  <% if(userInfo){ %>
+	<h1>登录<%= userInfo %></h1>
+
+
+  <% }else{ %>
+	 <div id="lar">
+    	<ul id="tab">
+	  	<li value="0">登录</li>
+	  	<li value="1">注册</li>
+	</ul>
+	<div class="change">
+		<div class="login active">
+			<h1>欢迎登录</h1>
+			<form action="/users/dologin" method="post">
+				<div><p>用户名</p><input type="text" name="luser" placeholder="用户名"></div>
+				<div><p>密码</p><input type="password" name="lpsw" placeholder="密码"></div>
+				<div><button  id="btn" style="margin:0 auto;display:block;width:100px;height:30px;background:rgba(0,161,255,0.29);">登录</button></div>
+			</form>
+		</div>
+		<div class="register">
+			<h1>欢迎注册</h1>
+			<form action="/users/doregister" method="post">
+				<div><p>用户名</p><input type="text" name="rusername" placeholder="用户名"></div>
+				<div><p>密码</p><input type="password" name="rpsw" placeholder="密码"></div>
+				<div><button type="submit" style="margin:0 auto;display:block;width:100px;height:30px;background:rgba(0,161,255,0.29);">注册</button></div>
+			</form>
+		</div>
+	</div>
+    	
+    </div>
+  <% } %>
+   
+<script>
+	$(function(){
+		$('#tab>li').click(function(){
+			$('.change>div').eq($(this).val()).addClass('active').siblings().removeClass('active')
+		})
+		
+		$('#btn').click(function(){
+			let userVal = $('[name=luser]').val()
+			let pswVal = $('[name=lpsw]').val()
+			// console.log(userVal)
+			$.post('/users/dologin',{userName:userVal,psw:pswVal},(res)=>{
+				if(res.type == 1){
+					alert(res.msg)
+					window.location.href = '/'     
+
+					// 前段界面的操作路由
+				}else if(res.type == -2){
+					alert(res.msg)
+				}else{
+					alert(res.msg)
+				}
+			})
+
+		})
+
+	
+
+
+	})
+	
+</script>
+  </body>
+
+  <!-- 模块加载 -->
+</html>

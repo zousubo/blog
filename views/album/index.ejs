@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../head.ejs %>
+  </head>
+  <body>
+    <% include ../header.ejs %>
+    <div class="row">
+  <% dirArr.forEach(function(item){%>
+      <a class="peo" href="/album/<%= item%>"><img src="images/bg.jpg" alt="" style="width:100px;height:200px"/> <h4><%= item %></h4></a>
+  <% }) %>    
+      <a href="/uploadPic">上传</a>
+      <a href="/create">创建</a>
+
+    </div>
+  </body>
+</html>

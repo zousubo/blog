@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ./head.ejs %>
+
+    <style>
+    	#lar{width:40%;float:right;}
+	#lar>#tab{width:100%;height:30px;background:orange;float:right;}
+	#lar>#tab>li{width:50%;float:left;text-align: center;line-height:30px;}
+	
+	#lar>.change{position:relative;}
+	#lar>.change>div{position: absolute;display: none;top:30px;}
+    	#lar>.change>.login{width:100%;float:right;background:#eee;padding:30px;padding-bottom: 60px}
+    	#lar>.change>.login>form{margin-top:20px;}
+    	#lar>.change>.login>form>div{margin-top:30px;}
+    	#lar>.change>.login h1{text-align:center;font-size:60px;}
+    	#lar>.change>.login p{color:red;text-align:center;font-size:25px;margin:10px 0px}
+    	#lar>.change>.login input{width:60%;display:block;margin:0 auto;height:30px;}
+    	#lar>.change>.register{width:100%;float:right;background:#eee;padding:30px;padding-bottom: 60px}
+    	#lar>.change>.register>form{margin-top:20px;}
+    	#lar>.change>.register>form>div{margin-top:30px;}
+    	#lar>.change>.register h1{text-align:center;font-size:60px;}
+    	#lar>.change>.register p{color:red;text-align:center;font-size:25px;margin:10px 0px}
+    	#lar>.change>.register input{width:60%;display:block;margin:0 auto;height:30px;}
+	
+	#lar>.change>.active{display: block}
+
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+  <% include header.ejs %>
+
+	<h1>登录<%= userInfo %></h1>
+
+
+  
+  </body>
+
+  <!-- 模块加载 -->
+</html>

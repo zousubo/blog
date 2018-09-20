@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/album.css' />
+</head>
+<body>
+<div class="row">
+    <ul>
+        <% fileArr.forEach(function(item){ %>
+        <li class="pic"><img src="/upload/李一氓/<%= item%>" alt=""/></li>
+        <%})%>
+    </ul>
+</div>
+</body>
+</html>

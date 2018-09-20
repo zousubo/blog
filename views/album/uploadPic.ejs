@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/uploadImg" method="post" enctype="multipart/form-data">
+      <select name="picName" id="picName" >
+        <% dirArr.forEach(function(item){%>
+          <option value="<%= item %>"><%= item %></option>
+        <%})%>
+      </select>
+      <input type="text" placeholder="上传" name="changeName">
+      <input type="file" name="files">
+      <button type="submit">提交</button>
+    </form>
+  </body>
+</html>

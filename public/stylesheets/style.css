@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+  padding-top:0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.peo{width:100px;height:200px;background:orange;display:block;float:left;position: flex;margin:10px}
+
+.peo>h4{text-align:center}

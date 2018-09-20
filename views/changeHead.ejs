@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ./head.ejs %>
+    <style>
+      #warp{width:20%;margin:0 auto;}
+      .scan{background:url('<%= userInfo.headPic%>') no-repeat 0 0/100% 100%;width:300px;height:300px;border-radius:150px;}
+      #warp>h1{display: inline-block; }
+    </style>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+  <% include header.ejs %>
+  <div id="warp">
+    <div class="scan"></div>
+    <h1>请修改您的头像</h1>
+    <form action="/users/dochange" method="post" enctype="multipart/form-data">
+      <input type="file" name="Head">
+      <input type="submit">
+    </form>
+  </div>
+      
+
+
+  
+  </body>
+
+  <!-- 模块加载 -->
+</html>
